@@ -1,0 +1,118 @@
+title = "Where"
+url = "/where"
+layout = "default"
+description = "Where page"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+child_of = "mey_no_parent"
+hide_crumb = "0"
+remove_crumb_trail = "0"
+crumb_disabled = "0"
+[data_management_abbreviation dm_abbr]
+[data_management_email dm_email]
+[data_management_fax dm_fax]
+[data_management_phone dm_phone]
+[seldac]
+==
+<div class="container">
+	<div class="page-header text-center">
+		<h1>
+			{{ seldac.settings.fullname }}
+			<a class="pull-right btn btn-large btn-success"
+				href="http://maps.google.it/maps?ie=UTF8&q=Seldac+Servizi+s.r.l,+via+felice+cavallotti,+128,+novi+ligure,+al&fb=1&gl=it&hq=seldac+servizi+srl&hnear=0x478766853ea0401b:0xd7e22e20ba63baad,Via+Felice+Cavallotti,+128,+AL&cid=0,0,14609421731433188625&t=m&ll=44.767288,8.788719&spn=0.007312,0.013733&z=16&iwloc=A&source=embed"
+				target="_blank" data-tooltip title="{{ 'Show with Google Maps'|_ }}"><i class="fa fa-globe"></i>
+			</a>
+		</h1>
+		{% partial "flash" %}
+	</div>
+	<div class="row">
+		<div class="col-md-12 col-xs-12">
+			<div id="accordion-where" class="panel-group">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#accordion-where-1" data-parent="#accordion-where"
+								data-toggle="collapse">{{ 'Details'|_ }}</a>
+						</h)>
+					</div>
+					<div id="accordion-where-1" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-4 col-xs-6">
+									<address>
+										<abbr title="{{ 'Indirizzo'|_ }}"><i class="fa fa-building fa-4x fa-fw pull-left"></i></abbr>
+										<h3>{{ seldac.settings.address_street_name }} n. {{ seldac.settings.address_street_number }} int. {{ seldac.settings.address_street_int }}</h3>
+									</address>
+								</div><!-- /.col-md-4 -->
+								<div class="col-md-4 col-xs-6">
+									<address>
+										<abbr title="{{ 'Città'|_ }}"><i class="fa fa-location-arrow fa-4x fa-fw pull-left"></i></abbr>
+										<h3>{{ seldac.settings.address_zip }} {{ seldac.settings.address_city }}
+										({{ seldac.settings.address_province }}) - {{ seldac.settings.address_country }}</h3>
+									</address>
+								</div><!-- /.col-md-4 -->
+								<div class="col-md-4 col-xs-6">
+									<address>
+										<abbr title="{{ dm_abbr.publishedKey.vat.meaning }}"><i class="fa fa-barcode fa-4x fa-fw pull-left"></i></abbr>
+										<h3>{{ seldac.settings.vat }}</h3>
+									</address>
+								</div><!-- /.col-md-4 -->
+							</div><!-- /.row -->
+							<div class="row mrg-t-50px">
+								<div class="col-md-3 col-xs-6">
+									<address>
+										<abbr title="{{ 'Email'|_ }}"><i class="fa fa-envelope fa-4x fa-fw pull-left"></i></abbr>
+										{% for email in dm_email.published if not(email.type starts with 'mc-') %}
+											<a data-tooltip title="{{ 'Contacts'|_ }}"
+												href="{{ 'contact'|page }}">{{ email.address }}</a><br/>
+										{% endfor %}
+									</address>
+								</div><!-- /.col-md-3 -->
+								<div class="col-md-3 col-xs-6">
+									<address>
+										<abbr title="{{ 'Telefono'|_ }}"><i class="fa fa-phone fa-4x fa-fw pull-left"></i></abbr>
+										{% for phone in dm_phone.published if not(phone.type starts with 'mc-') and 'mobile' not in phone.type %}
+											{{ phone.number }}<br/>
+										{% endfor %}
+									</address>
+								</div><!-- /.col-md-3 -->
+								<div class="col-md-3 col-xs-6">
+									<address>
+										<abbr title="{{ 'Cellulare'|_ }}"><i class="fa fa-mobile fa-4x fa-fw pull-left"></i></abbr>
+										{% for phone in dm_phone.published if not(phone.type starts with 'mc-') and 'mobile' in phone.type %}
+											{{ phone.number }}<br/>
+										{% endfor %}
+									</address>
+								</div><!-- /.col-md-3 -->
+								<div class="col-md-3 col-xs-6">
+									<address>
+										<abbr title="{{ 'Fax'|_ }}"><i class="fa fa-print fa-4x fa-fw pull-left"></i></abbr>
+										{% for fax in dm_fax.published if not(fax.type starts with 'mc-') %}
+											{{ fax.number }}<br/>
+										{% endfor %}
+									</address>
+								</div><!-- /.col-md-3 -->
+							</div><!-- /.row -->
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a href="#accordion-where-2" data-parent="#accordion-where"
+								data-toggle="collapse">{{ 'Show Map'|_ }}</a>
+						</h4>
+					</div>
+					<div id="accordion-where-2" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<iframe class="no-pointer-events" frameborder="0" height="400px" marginheight="0" marginwidth="0" scrolling="no"
+								src="http://maps.google.com/maps?f=q&source=s_q&hl=it&geocode=&q=seldac+servizi+s.r.l,+novi+ligure&aq=&sll=45.262262,7.920444&sspn=4.198887,10.821533&ie=UTF8&hq=seldac+servizi+srl&hnear=Novi+Ligure,+Alessandria,+Piemonte&ll=44.765287,8.78866&spn=0.007221,0.006295&t=m&output=embed"
+								width="100%"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

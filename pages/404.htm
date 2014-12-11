@@ -1,0 +1,36 @@
+title = "Page not found (404)"
+url = "/404"
+layout = "default"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+child_of = "mey_no_parent"
+hide_crumb = "0"
+remove_crumb_trail = "0"
+crumb_disabled = "0"
+==
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center mrg-t-100px">
+				<img src="{{ 'assets/images/icons/compass.png'|theme }}" alt="{{ 'Page not found'|_ }}" class="pull-left">
+				<h1>{{ 'You appear to be lost...'|_ }}</h1>
+			</div>
+			<div class="col-md-10 col-md-offset-2 mrg-t-40px">
+				<p>{{ 'We\'re very sorry, but the page you requested :start cannot be found:end here.'|_({start: '<em>', end: '</em>'}) }}</p>
+				<p>{{ 'Try returning to where you started with this compass.'|_ }}</p>
+				<p class="text-danger pull-right"><strong><small><em>{{ 'Error code: :error_code'|_({ error_code: 404 }) }}</em></small></strong>
+			</div>
+			<div class="col-md-6 text-center mrg-t-100px">
+				<a class="btn btn-success btn-labeled btn-lg" href="{{ '/'|app }}" title="{{ 'Home'|_ }}" data-tooltip>
+					<span class="btn-label"><i class="fa fa-home fa-fw"></i></span>
+					{{ 'Home'|_ }}
+				</a>
+			</div>
+			<div class="col-md-6 text-center mrg-t-100px">
+				<a class="btn btn-primary btn-labeled btn-lg" href="{{ 'contact'|page }}" title="{{ 'Contact us'|_ }}" data-tooltip>
+					{{ 'Contact us'|_ }}<span class="btn-label btn-label-right"><i class="fa fa-user fa-fw"></i></span></a>
+			</div>
+		</div>
+	</div>
+</div>

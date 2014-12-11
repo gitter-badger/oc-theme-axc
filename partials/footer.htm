@@ -1,0 +1,27 @@
+[seldac]
+[data_management_abbreviation dm_abbr]
+==
+<footer>
+	<div class="container pdn-20px">
+		<div class="row">
+			<div class="col-md-6 col-xs-12">
+				© {{ "now"|date('Y') }} &bull; {{ seldac.settings.full_name }}
+				<span class="hidden-xs">&bull;</span> <br class="visible-xs"/>
+				{{ seldac.settings.address_street_name }} n. {{ seldac.settings.address_street_number }} int.
+				{{ seldac.settings.address_street_int }} <span class="hidden-xs">&bull;</span>
+				{{ seldac.settings.address_zip }} {{ seldac.settings.address_city }}
+				({{ seldac.settings.address_province }}) <span class="hidden-xs"></span>
+				{{ dm_abbr.publishedHtml.vat|raw }} {{ seldac.settings.vat }}
+			</div><!-- /.col-md-6 -->
+
+			<div class="col-md-6 col-xs-12 text-right">
+				<div class="row mrg-b-10px">
+					<div class="col-md-12">
+						<em>{{ 'Pagina caricata in :x secondi'|_({x: '<span class="label label-success mrg-l-5px mrg-r-5px">@todo</span>'}) }}</em>
+					</div><!-- /.col-md-12 -->
+				</div><!-- /.row -->
+				{% partial "powered" %}
+			</div><!-- /.col-md-6 -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</footer>

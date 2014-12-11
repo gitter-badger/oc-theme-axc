@@ -1,0 +1,52 @@
+/**
+ * @author Alex Carrega <contact@alexcarrega.com>
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
+ **/
+
+body.page-home
+{
+	#carousel-home
+	{
+		border-bottom: 5px @p-color double;
+
+		h1, h3, p
+		{
+			color: @bg-color;
+		}
+
+		h1, h3
+		{
+			color: @s-color;
+			font-weight: bold;
+			/*text-shadow: 0 2px 0 @bg-color;*/
+		}
+
+		h1
+		{
+			font-size: 5em;
+		}
+
+		h3
+		{
+			font-size: 1.5em;
+		}
+
+		p
+		{
+			color: @p-color;
+			text-shadow: none;
+			font-size: 1em;
+
+			&.well
+			{
+				color: @bg-color;
+				#gradient > .vertical(@s-color; @i-color);
+
+				i
+				{
+					border: none;
+				}
+			}
+		}
+	}
+}

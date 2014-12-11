@@ -1,0 +1,46 @@
+/**
+ * @author Alex Carrega <contact@alexcarrega.com>
+ * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
+ **/
+
+body.page-insurance
+{
+	.nav-tabs
+	{
+		li
+		{
+			a
+			{
+  			background-color: #333333; 
+  			border-color: #777777;
+  			color:#fff;
+
+  			&:hover
+  			{
+  				  border-color: @s-color;
+  				  border-bottom-color: @i-color;
+  					background-color: @i-color;
+  					text-decoration: underline;
+  			}
+			}
+
+			&.active > a, &.active > a:hover, &.active>a:focus
+			{
+				font-weight: bold;
+  			color: #fff;
+  			background-color: @s-color;
+  			border: 1px solid @p-color;
+  			border-bottom-color: @s-color;
+			}
+		}
+	}
+
+	.tab-content
+	{
+		.tab-pane
+		{
+			#gradient > .vertical( @s-color; #ffffff);
+			min-height: 500px;
+		}
+	}
+}

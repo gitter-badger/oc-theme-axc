@@ -1,0 +1,42 @@
+[seldac]
+[menu]
+menu_id = "default"
+selected_item_class='active'
+before_menu='<ul id="%3$s" class="nav navbar-nav mrg-t-0px mrg-b-0px">'
+before_url_item_label='<a href="%1$s" title="%6$s" class="page" target="%7$s">'
+==
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" type="button" data-target="#menu" data-toggle="collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<button class="navbar-toggle pull-left mrg-l-10px" type="button" data-target="#menu-xs" data-toggle="offcanvas" data-canvar="body">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<a class="navbar-brand hidden-xs mrg-r-50px pdn-0px pdn-t-5px" href="{{ '/'|app }}"><img src="{{ 'assets/images/header/logo.png'|theme }}"
+					alt="{{ seldac.settings.full_name }}" /></a>
+			<a class="navbar-brand visible-xs" href="{{ '/'|app }}"><strong>{{ seldac.settings.full_name }}</strong></a>
+		</div><!-- /.navbar-header -->
+
+		<div  id="menu" class="collapse navbar-collapse nav navbar-nav">
+			{% component 'menu' selected_item=this.page.id %}
+		</div>
+
+		<ul class="nav navbar-nav navbar-right hidden-xs">
+			{% partial 'user/menu' %}
+			{% partial 'i18n/menu' %}
+		</ul>
+
+		<nav id="menu-xs" class="navmenu navmenu-default navmenu-fixed-left wdt-60px mrg-t-70px offcanvas" role="navigation">
+			{% partial 'i18n/menu-xs' %}
+			{% partial 'user/menu-xs' %}
+		</nav>
+	</div><!-- /.container -->
+</div><!-- /.navbar -->	

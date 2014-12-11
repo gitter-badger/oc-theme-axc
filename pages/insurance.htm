@@ -1,0 +1,112 @@
+title = "Insurance"
+url = "/insurance"
+layout = "default"
+description = "Insurance page"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+child_of = "mey_no_parent"
+hide_crumb = "0"
+remove_crumb_trail = "0"
+crumb_disabled = "0"
+[data_management_abbreviation dm_abbr]
+[data_management_email dm_email]
+[data_management_fax dm_fax]
+[data_management_insurance dm_insurance]
+[data_management_phone dm_phone]
+[seldac]
+==
+<div class="container mrg-b-30px">
+	<div class="page-header text-center">
+			<h1><img alt="{{ 'Mirco Ceseri - Consulenze Assicurative e Finanziarie in plurimandato'|_ }}"
+				title="{{ 'Mirco Ceseri - Consulenze Assicurative e Finanziarie in plurimandato'|_ }}"
+				src="{{ 'assets/images/insurance/logo.gif'|theme }}" /></h1>
+			{% partial "flash" %}
+	</div>
+	<div class="row">
+		<div class="col-md-12 col-xs-12">
+			<div class="jumbotron text-justify">
+				<p>Our <strong class="text-success">philosophy</strong> is to solve the insurance issues of people and businesses,
+					that every day you everyday face in work and in life.</p>
+				<p>
+					{{ 'Grazie alla nostra :to esperienza:tc e ai nostri :to partners:tc internazionali, siamo in grado di fornire la migliore consulenza in campo :to assicurativo:tc, :to finanziario:tc e :to previdenziale:tc.'|_({ to: '<strong class="text-success">', tc: '</strong>' }) }}
+				</p>
+				<p>
+					{{ 'Potendo fruire della collaborazione con le migliori compagnie assicurative presenti sul mercato avrete la :to libertà di scegliere:tc prodotti innovativi a :to costi realmente contenuti:tc.'|_({ to: '<strong class="text-success">', tc: '</strong>' }) }}
+				</p>
+			</div>
+			<div class="row">
+				{% for company in dm_insurance.company %}
+					<div class="col-xs-6 col-md-3 text-center">
+						<img class="img-thumbnail mrg-t-10px mrg-b-10px" alt="{{ company.title }}" title="{{ company.title }}" data-tooltip 
+							src="{{ image_field_thumb_settings(company.image, '\\AxC\\DataManagement\\Models\\Settings', 'insurance_company', 'crop') }}" />
+					</div><!-- /.col-xs-3.col-md-2 -->
+				{% endfor %}
+			</div><!-- /.row -->
+		</div><!-- /.col-md-12 -->
+	</div><!-- /.row -->
+	<div class="row mrg-t-50px">
+		<div class="col-md-12 col-xs-12">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tab-1" data-toggle="tab">{{ 'Info'|_ }}</a></li>
+				{% for content in dm_insurance.content %}
+					<li><a href="#tab-{{ loop.index + 1 }}" data-toggle="tab">{{ content.title }}</a></li>
+				{% endfor %}
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active in text-danger pdn-20px" id="tab-1">
+					<div class="row">
+							<div class="col-md-6 col-xs-12">
+								<address>
+									<abbr class="mrg-r-10px" title="{{ 'Indirizzo'|_ }}"><i class="fa fa-building fa-fw"></i></abbr>
+									{{ seldac.settings.mc_address_street_name }} n. {{ seldac.settings.mc_address_street_number }} int. {{ seldac.settings.mc_address_street_int }}<br/>
+									<abbr class="mrg-r-10px" title="{{ 'Città'|_ }}"><i class="fa fa-location-arrow fa-fw"></i></abbr>
+									{{ seldac.settings.mc_address_zip }} {{ seldac.settings.mc_address_city }}
+									({{ seldac.settings.mc_address_province }}) - {{ seldac.settings.mc_address_country }}
+								</address>
+								<address>
+									<abbr class="mrg-r-10px" title="{{ dm_abbr.publishedKey.nin.acronym }}"><i class="fa fa-qrcode fa-fw"></i></abbr>
+									{{ seldac.settings.mc_nin }}<br/>
+									<abbr class="mrg-r-10px" title="{{ dm_abbr.publishedKey.vat.acronym|_ }}"><i class="fa fa-barcode fa-fw"></i></abbr>
+									{{ seldac.settings.mc_vat }}<br/>
+									{{ ':rui registration: Section :section - Number :number of :date'|_(
+										{ rui: dm_abbr.publishedHtml.rui, section: seldac.settings.rui_section, number: seldac.settings.rui_number, date: seldac.settings.rui_date }) }}
+								</address>
+								<address><abbr class="mrg-r-10px" title="{{ 'Fax'|_ }}"><i class="fa fa-print fa-fw"></i></abbr>{{ dm_fax.principal.number }}</address>
+							</div>
+							<div class="col-md-6 col-xs-12">
+								<address>
+									<abbr title="{{ 'Telefono'|_ }}"><i class="fa fa-phone fa-3x fa-fw pull-left"></i></abbr>
+									{% for phone in dm_phone.published if 'mobile' not in phone.type %}
+										{{ phone.number }}<br/>
+									{% endfor %}
+								</address>
+								<address>
+									<abbr title="{{ 'Cellulare'|_ }}"><i class="fa fa-mobile fa-3x fa-fw pull-left"></i></abbr>
+									{% for phone in dm_phone.published if phone.type starts with 'mc-mobile' %}
+										{{ phone.number }}<br/>
+									{% endfor %}
+								</address>
+								<address>
+									<abbr title="{{ 'Email'|_ }}"><i class="fa fa-envelope fa-fw fa-4x pull-left"></i></abbr>
+									{% for email in dm_email.published if email.type starts with 'mc-' %}
+										<a data-tooltip href="mailto:{{ email.address }}"
+											title="{{ 'Scrivi un\'email a :email'|_({ email: email.address }) }}">{{ email.address }}</a><br/>
+									{% endfor %}
+								</address>
+							</div>
+						</div><!-- /.row -->
+				</div><!-- /#tab-1 -->
+				{% for content in dm_insurance.content %}
+					<div class="tab-pane in text-danger pdn-20px" id="tab-{{ loop.index + 1 }}">
+						<ul>
+							{% for item in content.items %}
+								<li>{{ item.value }}</li>
+							{% endfor %}
+						</ul>
+					</div><!-- /#tab-2 -->
+				{% endfor %}
+			</div><!-- /.tab-content -->
+		</div>
+	</div><!-- /.row -->
+</div><!-- /.container -->

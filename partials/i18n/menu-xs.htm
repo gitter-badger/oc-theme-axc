@@ -1,0 +1,10 @@
+[localePicker lp_xs]
+==
+<!-- i18-select-xs -->
+<div class="btn-group-vertical" role="group">
+	{% for code, locale in lp_xs.locales %}
+		<a data-tooltip data-placement="right" class="btn btn-lg btn-{% if code == lp_xs.activeLocale %}success{% else %}default{% endif %}" href="#" data-request="onSwitchLocale"
+			data-request-data="locale: '{{ code }}'" title="{{ locale|_ }}"><i class="flag-icon flag-icon-{{ code|replace({'en': 'gb'}) }}"></i>
+		</a><!-- /a - {{ locale|_ }} -->
+	{% endfor %}
+<!-- /i18-select-xs -->

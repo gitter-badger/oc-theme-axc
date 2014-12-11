@@ -1,0 +1,48 @@
+==
+<script type="text/javascript">
+	var RecaptchaOptions = {
+		theme : 'custom',
+		custom_theme_widget: 'recaptcha_widget'
+	};
+</script>
+
+<div id="recaptcha_widget" style="display: none">
+	<div class="form-group mrg-t-30px">
+		<div class="col-md-offset-2 col-md-3 col-xs-12">
+			<a href="javascript:Recaptcha.switch_type('audio')" class="recaptcha_only_if_image btn btn-lg btn-default" data-tooltip title="{{ 'Audio'|_ }}"
+				data-placement="top"><i class="fa fa-fw fa-headphones"></i></a>
+			<a href="javascript:Recaptcha.switch_type('image')" class="recaptcha_only_if_audio btn btn-lg btn-default" data-tooltip title="{{ 'Image'|_ }}" 
+				data-plament="top"><i class="fa fa-fw fa-picture-o"></i></a>
+		</div><!-- /.col-md-offset-2 -->
+		<div class="col-md-3 col-xs-12">
+			<div id="recaptcha_image" class="mb-30px"></div>
+			<div class="recaptcha_only_if_incorrect_sol" class="text-danger">{{ 'Code not valid'|_ }}</div>
+		</div><!-- /.col-md-4 -->
+		<div class="col-md-offset-2 col-md-2 col-xs-12">
+			<a href="javascript:Recaptcha.showhelp()" class="btn btn-lg btn-default pull-right" data-tooltip
+				title="{{ 'Help'|_ }}" data-placement="top"><i class="fa fa-fw fa-question"></i></a>
+		</div><!-- /.col-md-offset-2 -->
+	</div><!-- /.form-group -->
+	<div class="form-group">
+		<label class="recaptcha_only_if_image col-md-2 col-xs-12 control-label">{{ 'Enter the words'|_ }}</label>
+		<label class="recaptcha_only_if_audio col-md-2 col-xs-12 control-label">{{ 'Enter the numbers'|_ }}</label>
+		<div class="col-md-10 col-xs-12">
+			<div class="input-group input-group-lg" data-placement="top" data-tooltip title="{{ 'Required field'|_ }}">
+				<a class="btn btn-success input-group-addon" data-tooltip title="{{ 'Refresh'|_ }}" data-placement="top" href="javascript:Recaptcha.reload()"><i
+					class="fa fa-fw fa-refresh"></i></a>
+				<input type="text" id="recaptcha_response_field" class="form-control" name="recaptcha_response_field"
+					data-nod-presence="<i class='fa fa-fw fa-exclamation'></i>" />
+				<span class="input-group-addon note"><i class="fa fa-fw fa-asterisk"></i></span>
+			</div><!-- /.input-group -->
+		</div><!-- /.col-md-12 -->
+	</div><!-- /.form-group -->
+</div>
+
+<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6LfF0uwSAAAAAL4L5_sQ9aDiCn8PzMd0rStSSH5N"></script>
+
+<noscript>
+	<iframe height="300" width="500" frameborder="0" src="http://www.google.com/recaptcha/api/noscript?k=6LfF0uwSAAAAAL4L5_sQ9aDiCn8PzMd0rStSSH5N">
+	</iframe><br/>
+	<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+	<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+</noscript>

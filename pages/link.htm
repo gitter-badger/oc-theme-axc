@@ -1,0 +1,35 @@
+title = "Link"
+url = "/link"
+layout = "default"
+description = "Link page"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+child_of = "mey_no_parent"
+hide_crumb = "0"
+remove_crumb_trail = "0"
+crumb_disabled = "0"
+
+[data_management_link dm_link]
+==
+<div class="container">
+	<div class="page-header text-center">
+		<h1>{{ this.page.title }}</h1>
+		{% partial "flash" %}
+	</div>
+
+	<ul class="media-list">
+		{% for link in dm_link.published %}
+			<li class="media mrg-b-50px">
+				<a class="pull-left mrg-r-20px" href="{{ link.url }}" target="_link">
+					<img class="media-object img-thumbnail wdt-120px hgt-120px" src="{{ image_field_thumb_settings(link.image, '\\AxC\\DataManagement\\Models\\Settings', 'link', 'crop') }}"
+						alt="{{ link.title }}">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading text-success"><strong>{{ link.title }}</strong></h4>
+					{{ link.description|raw|nl2br }}
+				</div>
+			</li>
+		{% endfor %}
+	</ul>
+</div>

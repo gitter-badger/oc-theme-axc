@@ -1,0 +1,11 @@
+{
+	"name": "alexcarrega/oc-theme-axc",
+	"dependencies":
+	{
+		"axc-class2.css": ">=0.0.1",
+		"bootstrap": ">=@todo",
+		"jansy-bootstrap": ">=@todo",
+		"font-awesome": ">=@todo"
+	},
+	"private": true
+}

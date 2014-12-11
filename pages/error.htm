@@ -1,0 +1,40 @@
+title = "Error page (500)"
+url = "/error"
+layout = "default"
+description = "Error page"
+hidden = "0"
+meta_title = "Error"
+meta_description = "Error page"
+seo_keywords = "error"
+robot_index = "index"
+robot_follow = "follow"
+child_of = "mey_no_parent"
+hide_crumb = "0"
+remove_crumb_trail = "1"
+crumb_disabled = "0"
+==
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center mrg-t-100px">
+				<img src="{{ 'assets/images/icons/error.png'|theme }}" alt="{{ 'System error'|_ }}" class="pull-left">
+				<h1>{{ 'Clean up on aisle three!'|_ }}</h1>
+			</div>
+			<div class="col-md-11 col-md-offset-1 mrg-t-40px">
+				<p>{{ 'We\'re very sorry, but something went wrong and the page cannot be displayed due to a :start messy error:end.'|_({start: '<em>', end: '</em>'}) }}</p>
+				<p>{{ 'Don\'t worry, our specially programmed robotic workers have been deployed to clean things up.'|_ }}</p>
+				<p class="text-danger pull-right"><strong><small><em>{{ 'Error code: :error_code'|_({ error_code: 500 }) }}</em></small></strong>
+			</div>
+			<div class="col-md-6 text-center mrg-t-100px">
+				<a class="btn btn-success btn-labeled btn-lg" href="{{ '/'|app }}" title="{{ 'Home'|_ }}" data-tooltip>
+					<span class="btn-label"><i class="fa fa-home fa-fw"></i></span>
+					{{ 'Home'|_ }}
+				</a>
+			</div>
+			<div class="col-md-6 text-center mrg-t-100px">
+				<a class="btn btn-primary btn-labeled btn-lg" href="{{ 'contact'|page }}" title="{{ 'Contact us'|_ }}" data-tooltip>
+					{{ 'Contact us'|_ }}<span class="btn-label btn-label-right"><i class="fa fa-user fa-fw"></i></span></a>
+			</div>
+		</div>
+	</div>
+</div>

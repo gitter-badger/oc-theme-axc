@@ -1,4 +1,3 @@
-oc-theme-axc
-============
+# oc-theme-axc
 
-AxC (http://www.alexcarrega.com) Theme for OctoberCMS
+> AxC (http://www.alexcarrega.com) Theme for OctoberCMS.

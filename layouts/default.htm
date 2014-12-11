@@ -1,0 +1,81 @@
+description = "Default layout"
+
+[seldac]
+
+
+[ScrollTop]
+speedScrollTopLynx = "300"
+sizeScrollLynx = "50"
+positionScrollLynx = "bottomright"
+UnitScrollLynx = "%"
+horizontalUnitsScrollLynx = "2"
+verticalUnitsScrollLynx = "7"
+arrowColorScrollLynx = "#000"
+arrowHoverColorScrollLynx = "#2E2E2E"
+backgroundColorScrollLynx = "#FFF"
+backgroundHoverColorScrollLynx = "#E6E6E6"
+
+[SeoCmsPage]
+
+
+[googleTracker]
+
+
+[localePicker]
+
+
+[account]
+paramCode = "code"
+
+[addThis]
+
+
+[segment]
+==
+<!DOCTYPE html>
+<html>
+	<head>
+		{% component 'SeoCmsPage' %}
+
+		<link rel="icon" type="image/png" href="{{ 'assets/img/logo.png'|theme }}" />
+		<link href="//cdn.bootcss.com/animate.css/3.2.0/animate.min.css" rel="stylesheet">
+		<link href="//cdn.jsdelivr.net/flag-icon-css/0.6.0/css/flag-icon.min.css" rel="stylesheet">
+		<link href="{{ [
+			'assets/css/font-awesome.css',
+			'assets/css/bootstrap.css',
+			'assets/css/jasny-bootstrap.css',
+			'assets/css/class2.css',
+			'assets/css/theme.css'
+			]|theme }}" rel="stylesheet">
+		{% styles %}
+	</head>
+
+	<body class="page-{{ this.page.id }} layout-{{ this.layout.id }}">
+		<!-- Header -->
+		<header id="layout-header" class="header-navbar">
+			{% partial "header" %}
+		</header>
+
+		<!-- Content -->
+		<div id="layout-content">
+			{% page %}
+			{% component 'googleTracker' %}
+		</div>
+
+		<!-- Footer -->
+		<footer id="layout-footer">
+			{% partial "footer" %}
+		</footer>
+
+		<!-- Scripts -->
+		<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+		<script src="{{ 'assets/javascript/theme.js'|theme }}"></script>
+		{% framework extras %}
+		{% scripts %}
+		{% component 'ScrollTop' %}
+		{% component 'addThis' %}
+		{% component 'segment' %}
+	</body>
+</html>

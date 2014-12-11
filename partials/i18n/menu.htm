@@ -1,0 +1,16 @@
+[localePicker lp]
+==
+<!-- i18n-select -->
+<li class="dropdown">
+	<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="flag-icon flag-icon-{{ lp.activeLocale|replace({'en': 'gb'}) }}"></i></a>
+	<ul class="dropdown-menu pdn-t-0px pdn-b-0px" role="menu">
+		{% for code, locale in lp.locales %}
+			<li class="{% if code == lp.activeLocale %}active{% endif %}">
+				<a class="pdn-t-10px-imp pdn-b-10px-imp pdn-l-20px-imp pdn-r-20px-imp" href="#" data-request="onSwitchLocale" data-request-data="locale: '{{ code }}'">
+					<i class="flag-icon flag-icon-{{ code|replace({'en': 'gb'}) }} mrg-r-5px" ></i>{{ locale|_ }}</a>
+			</li>
+			<!-- /{{ locale.code }} -->
+		{% endfor %}
+	</ul><!-- /dropdown-menu -->
+</li><!-- /dropdown-toggle -->
+<!-- /i18n-select -->

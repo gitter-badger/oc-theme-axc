@@ -1,0 +1,134 @@
+title = "Home"
+url = "/"
+layout = "default"
+description = "Home page"
+hidden = "0"
+robot_index = "index"
+robot_follow = "follow"
+child_of = "mey_no_parent"
+hide_crumb = "0"
+remove_crumb_trail = "0"
+crumb_disabled = "0"
+[seldac]
+[data_management_abbreviation dm_abbr]
+[data_management_slideshow dm_ss]
+==
+<div class="hidden-xs carousel slide" id="carousel-home" data-ride="carousel">
+	<ol class="carousel-indicators">
+		{% for slideshow in dm_ss.published %}
+			<li {% if loop.first %}class="active"{% endif %} data-target="#carousel-home" slide-to="{{ loop.index0 }}"></li>
+		{% endfor %}
+	</ol>
+	<div class="carousel-inner">
+		{% for slideshow in dm_ss.published %}
+			<div class="item {% if loop.first %}active{% endif %}">
+				<img src="{{ slideshow.image.path }}" alt="{{ seldac.settings.fullname }}" />
+				<div class="carousel-caption">
+					<h1>{{ seldac.settings.fullname }}</h1>
+					<h3>{{ slideshow.title }}</h3>
+					<p class="strong well">{{ slideshow.description }}</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div><!-- /.carousel-inner -->
+	<a class="left carousel-control" href="#carousel-home" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left"></span></a>
+	<a class="right carousel-control" href="#carousel-home" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel-slide -->
+
+<div class="container">
+	<div class="page-header text-center"><h1>{{ 'Servizi:dots'|_({ dots: '...' }) }}
+		<small>{{ 'Contabilità'|_ }}</small></h1></div>
+	<div class="row">
+		<div class="col-md-4 col-xs-12">
+			<div class="thumbnail">
+				<img class="img-circle" alt="{{ 'Ordinaria Imprese'|_ }}"
+					src="{{ 'assets/images/home/ordinary-business.gif'|theme }}" />
+				<div class="caption hgt-300px">
+					<h3 class="text-success text-center"><strong>{{ 'Ordinaria Imprese'|_ }}</strong></h3>
+					<ul>
+						<li>{{ 'Inserimento dei dati contabili'|_ }}</li>
+						<li>{{ 'Liquidazione :vat'|_({ vat: dm_abbr.publishedHtml.vat }) }}</li>
+						<li>{{ 'Gestione ritenute'|_ }}
+						<li>{{ 'Gestione cespiti ammortizzabili'|_ }}</li>
+						<li>{{ 'Scadenzari clienti e fornitori'|_ }}</li>
+						<li>{{ 'Stampa libro giornale, registri :vat, libro inventari, schede contabili'|_({ vat: dm_abbr.publishedHtml.vat }) }}</li>
+						<li>{{ 'Stampa bilanci di verifica intermedi e di chiusura'|_ }}</li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- /ordinary-business -->
+		<div class="col-md-4 col-xs-12">
+			<div class="thumbnail">
+				<img class="img-circle" alt="{{ 'Semplificata Imprese'|_ }}"
+					src="{{ 'assets/images/home/simplified-business.gif'|theme }}" />
+				<div class="caption hgt-300px">
+					<h3 class="text-primary text-center"><strong>{{ 'Semplificata Imprese'|_ }}</strong></h3>
+					<ul>
+						<li>{{ 'Inserimento dei dati contabili'|_ }}</li>
+						<li>{{ 'Liquidazione :vat'|_({ vat: dm_abbr.publishedHtml.vat }) }}</li>
+						<li>{{ 'Gestione ritenute'|_ }}</li>
+						<li>{{ 'Gestione cespiti ammortizzabili'|_ }}</li>
+						<li>{{ 'Stampa registri :vat'|_({ vat: dm_abbr.publishedHtml.vat }) }}</li>
+						<li>{{ 'Stampa bilanci di verifica intermedi e di chiusura'|_ }}</li>
+					</ul>
+				</div>
+			</div>
+		</div><!--/simplified-business -->
+		<div class="col-md-4 col-xs-12">
+			<div class="thumbnail">
+				<img class="img-circle" alt="{{ 'Professionisti'|_ }}"
+					src="{{ 'assets/images/home/professionals.gif'|theme }}" />
+				<div class="caption hgt-300px">
+					<h3 class="text-info text-center"><strong>{{ 'Professionisti'|_ }}</strong></h3>
+					<ul>
+						<li>{{ 'Inserimento dei dati contabili'|_ }}</li>
+						<li>{{ 'Liquidazione :vat'|_({ vat: dm_abbr.publishedHtml.vat }) }}</li>
+						<li>{{ 'Gestione ritenute'|_ }}</li>
+						<li>{{ 'Gestione cespiti ammortizzabili'|_ }}</li>
+						<li>{{ 'Stampa registri :vat'|_({ vat: dm_abbr.publishedHtml.vat }) }}</li>
+						<li>{{ 'Stampa bilanci di verifica intermedi e di chiusura'|_ }}</li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- /professionals -->
+	</div><!-- /.row -->
+	<div class="row mrg-b-20px">
+		<div class="page-header text-center"><h1>{{ 'Servizi:dots'|_({ dots: '...' }) }} <small>{{ 'Dichiarazioni & altro'|_ }}</small></h1></div>
+		<div class="col-md-12 col-xs-12">
+
+			<div class="media">
+				<div class="media-left wdt-170px hidden-xs">
+					<img class="img-thumbnail" alt="{{ 'Dichiarazioni fiscali'|_ }}" src="{{ 'assets/images/home/tax.gif'|theme }}" />
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading text-danger"><strong>{{ 'Dichiarazioni fiscali'|_ }}</strong></h4>
+					<p>
+						{{ 'Predisposizione per elaborazione del modello UNICO comprensivo di dichiarazione redditi, modello :vat e :irap ed invio telematico c/o l\'Agenzia delle Entrate dello stesso.'|_({ vat: dm_abbr.publishedHtml.vat, irap: dm_abbr.publishedHtml.irap }) }}
+					</p>
+					<p>
+						{{ 'Predisposizione per l\'elaborazione degli eventuali studi di settore, della comunicazione annuale dati :vat, :vat e dei modelli di pagamenti F24 con addebito telematico, la redazione e l\'invio delle Certificazioni dei compensi assoggettati a ritenuta d\'acconto.'|_({ vat: dm_abbr.publishedHtml.vat }) }}
+					</p>
+				</div>
+			</div><!-- tax -->
+
+			<div class="media">
+				<div class="media-left wdt-170px hidden-xs">
+					<img class="img-thumbnail" alt="{{ 'Altre attività'|_ }}" src="{{ 'assets/images/home/other-activities.gif'|theme }}" />
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading text-success"><strong>{{ 'Altre attività'|_ }}</strong></h4>
+					<ul>
+						<li>{{ 'Contratti di locazione'|_ }}</li>
+						<li>{{ 'Pratiche telematiche Camera di Commercio'|_ }}</li>
+						<li>{{ 'Conteggi :vat'|_({ vat: dm_abbr.publishedHtml.vat }) }}</li>
+						<li>{{ 'Avvio nuove imprese'|_ }}</li>
+						<li>{{ 'Sportello :caf'|_({ caf: dm_abbr.publishedHtml.caf }) }}</li>
+					</ul>
+				</div>
+			</div><!-- /other-activities -->
+
+		</div>
+	</div><!-- /.row -->
+</div><!-- /.container -->
