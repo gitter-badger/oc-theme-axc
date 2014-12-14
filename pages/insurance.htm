@@ -14,7 +14,7 @@ crumb_disabled = "0"
 [data_management_fax dm_fax]
 [data_management_insurance dm_insurance]
 [data_management_phone dm_phone]
-[seldac]
+[axc]
 ==
 <div class="container mrg-b-30px">
 	<div class="page-header text-center">
@@ -59,18 +59,18 @@ crumb_disabled = "0"
 							<div class="col-md-6 col-xs-12">
 								<address>
 									<abbr class="mrg-r-10px" title="{{ 'Indirizzo'|_ }}"><i class="fa fa-building fa-fw"></i></abbr>
-									{{ seldac.settings.mc_address_street_name }} n. {{ seldac.settings.mc_address_street_number }} int. {{ seldac.settings.mc_address_street_int }}<br/>
+									{{ axc.settings.mc_address_street_name }} n. {{ axc.settings.mc_address_street_number }} int. {{ axc.settings.mc_address_street_int }}<br/>
 									<abbr class="mrg-r-10px" title="{{ 'Città'|_ }}"><i class="fa fa-location-arrow fa-fw"></i></abbr>
-									{{ seldac.settings.mc_address_zip }} {{ seldac.settings.mc_address_city }}
-									({{ seldac.settings.mc_address_province }}) - {{ seldac.settings.mc_address_country }}
+									{{ axc.settings.mc_address_zip }} {{ axc.settings.mc_address_city }}
+									({{ axc.settings.mc_address_province }}) - {{ axc.settings.mc_address_country }}
 								</address>
 								<address>
 									<abbr class="mrg-r-10px" title="{{ dm_abbr.publishedKey.nin.acronym }}"><i class="fa fa-qrcode fa-fw"></i></abbr>
-									{{ seldac.settings.mc_nin }}<br/>
+									{{ axc.settings.mc_nin }}<br/>
 									<abbr class="mrg-r-10px" title="{{ dm_abbr.publishedKey.vat.acronym|_ }}"><i class="fa fa-barcode fa-fw"></i></abbr>
-									{{ seldac.settings.mc_vat }}<br/>
+									{{ axc.settings.mc_vat }}<br/>
 									{{ ':rui registration: Section :section - Number :number of :date'|_(
-										{ rui: dm_abbr.publishedHtml.rui, section: seldac.settings.rui_section, number: seldac.settings.rui_number, date: seldac.settings.rui_date }) }}
+										{ rui: dm_abbr.publishedHtml.rui, section: axc.settings.rui_section, number: axc.settings.rui_number, date: axc.settings.rui_date }) }}
 								</address>
 								<address><abbr class="mrg-r-10px" title="{{ 'Fax'|_ }}"><i class="fa fa-print fa-fw"></i></abbr>{{ dm_fax.principal.number }}</address>
 							</div>

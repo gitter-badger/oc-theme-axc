@@ -1,17 +1,17 @@
-[seldac]
+[axc]
 [data_management_abbreviation dm_abbr]
 ==
 <footer>
 	<div class="container pdn-20px">
 		<div class="row">
 			<div class="col-md-6 col-xs-12">
-				© {{ "now"|date('Y') }} &bull; {{ seldac.settings.full_name }}
+				© {{ "now"|date('Y') }} &bull; {{ axc.settings.full_name }}
 				<span class="hidden-xs">&bull;</span> <br class="visible-xs"/>
-				{{ seldac.settings.address_street_name }} n. {{ seldac.settings.address_street_number }} int.
-				{{ seldac.settings.address_street_int }} <span class="hidden-xs">&bull;</span>
-				{{ seldac.settings.address_zip }} {{ seldac.settings.address_city }}
-				({{ seldac.settings.address_province }}) <span class="hidden-xs"></span>
-				{{ dm_abbr.publishedHtml.vat|raw }} {{ seldac.settings.vat }}
+				{{ axc.settings.address_street_name }} n. {{ axc.settings.address_street_number }} int.
+				{{ axc.settings.address_street_int }} <span class="hidden-xs">&bull;</span>
+				{{ axc.settings.address_zip }} {{ axc.settings.address_city }}
+				({{ axc.settings.address_province }}) <span class="hidden-xs"></span>
+				{{ dm_abbr.publishedHtml.vat|raw }} {{ axc.settings.vat }}
 			</div><!-- /.col-md-6 -->
 
 			<div class="col-md-6 col-xs-12 text-right">

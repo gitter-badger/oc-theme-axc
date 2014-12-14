@@ -17,7 +17,6 @@ function __bower(path)
 }
 
 axc_gulp.config.set({
-	name: 'theme',
 	title: 'AxC Theme',
 	path: __join(__dirname, assets_directory),
 	icon_notify: __join(__dirname, assets_directory, 'images/gulp/icon/notify.png')
